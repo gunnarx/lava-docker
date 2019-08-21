@@ -1,13 +1,4 @@
 services:
-  lab-slave-0:
-    build: {context: lab-slave-0}
-    dns_search: ''
-    environment: {LAVA_MASTER: master1, LAVA_MASTER_BASEURI: 'http://master1:80/RPC2',
-      LAVA_MASTER_TOKEN: longrandomtokenadmin, LAVA_MASTER_URI: 'http://admin:longrandomtokenadmin@master1:80/RPC2',
-      LAVA_MASTER_USER: admin}
-    hostname: lab-slave-0
-    ports: ['69:69/udp', '80:80', '61950-62000:61950-62000']
-    volumes: ['/boot:/boot', '/lib/modules:/lib/modules']
   master1:
     build: {context: master1}
     hostname: master1
