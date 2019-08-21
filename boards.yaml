@@ -1,22 +1,35 @@
+
 masters:
   - name: master1
     host: local
     users:
-    - name: admin
-      token: longrandomtokenadmin
-      password: admin
-      superuser: yes
-      staff: yes
+      - name: admin
+        token: FIXME
+        password: FIXME
+        superuser: yes
+        staff: yes
+      - name: slawr
+        token: FIXME
+        password: FIXME
+        superuser: yes
+        staff: yes
+      - name: gunnarx
+        token: FIXME
+        password: FIXME
+        superuser: yes
+        staff: yes
+      - name: user
+        token: FIXME
+        password: FIXME
+        superuser: no
+        staff: yes
+    allowed_hosts:
+       - "lava.genivi.org"
+    loglevel:
+       lava-logs: DEBUG
+       lava-master: DEBUG
+       lava-server-gunicorn: DEBUG
     tokens:
-    - username: admin
-      token: dfjdfkfkdjfkdsjfsl
-      description: no description
-slaves:
-  - name: lab-slave-0
-    host: local
-    remote_master: master1
-    remote_user: admin
-
-boards:
-  - name: qemu-01
-    type: qemu
+       - username: admin
+         token: FIXME
+         description: no description
