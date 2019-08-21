@@ -1,5 +1,6 @@
 CONTAINER_NAME ?= lava-master
 IMAGE_NAME ?= lava-master
+HOSTNAME ?= lava.genivi.org
 
 # External IP / Ports
 SERVER_IP ?= 127.0.0.1
@@ -25,6 +26,7 @@ build:
 run:
 	docker run -d -ti \
 	   --name=${CONTAINER_NAME} -p 5555-5556 -p 3079 -p 69 \
+	   --hostname=${HOSTNAME} \
 	   -p ${SERVER_IP}:${SERVER_PORT_80}:80 \
 	   -p ${SERVER_IP}:${SERVER_PORT_443}:443 ${IMAGE_NAME}:latest
 	@echo
