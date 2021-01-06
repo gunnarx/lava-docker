@@ -36,6 +36,10 @@ COPY env/ /etc/lava-server/dispatcher.d/
 
 COPY apache2/ /etc/apache2/
 
+# Override config file with our own
+COPY etc/lava-server/lava-master /etc/lava-server/
+COPY etc/lava-server/lava-logs /etc/lava-server/
+
 EXPOSE 3079 5555 5556
 
 CMD /start.sh && while [ true ];do sleep 365d; done

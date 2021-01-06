@@ -38,7 +38,9 @@ run:
 	docker run -d -ti \
 	   --name=${CONTAINER_NAME} \
 	   --hostname=${HOSTNAME} \
-	   -p ${SERVER_LOCAL_IP}:${SERVER_PORT_443}:443 \
+	   -p ${SERVER_LOCAL_IP}:${SERVER_PORT_80}:80 \
+	   -p ${SERVER_EXTERNAL_IP}:${SERVER_PORT_3079}:3079 \
+	   -p ${SERVER_EXTERNAL_IP}:${SERVER_PORT_5555}:5555 \
 	   -p ${SERVER_EXTERNAL_IP}:${SERVER_PORT_5556}:5556 \
 	   ${IMAGE_NAME}:latest
 	@echo
@@ -50,8 +52,8 @@ run:
 	@echo
 
 # Removed stuff
-# HTTP is not provided and/or nginx will redirect anyway
-#	   -p ${SERVER_LOCAL_IP}:${SERVER_PORT_80}:80 \
+# HTTPS is not provided directly because NGINX proxies to HTTP locally
+#	   -p ${SERVER_LOCAL_IP}:${SERVER_PORT_443}:443 \
 # 3079 is lava-coordinator, not sure if it is needed, anyway need to open firewall port in that case
 #	   -p ${SERVER_EXTERNAL_IP}:${SERVER_PORT_3079}:3079 \
 # 5555 seems to be used only on slave?

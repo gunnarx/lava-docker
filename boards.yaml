@@ -1,6 +1,9 @@
 
 masters:
   - name: master1
+    zmq_auth: True
+    zmq_auth_key: keys/master.key
+    zmq_auth_key_secret: keys/master.key_secret
     host: local
     users:
       - name: admin
